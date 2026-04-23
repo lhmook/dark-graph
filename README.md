@@ -1,16 +1,84 @@
-# React + Vite
+# Dark (Season 1) Character Graph
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+시즌 1부터 와이프와 뒤늦게 시청을 시작했는데, 중반을 넘어가면서부터 인물 관계가 점점 헷갈리기 시작했다.
+그래서 이해를 돕기 위해 직접 간단한 가족/인물 관계도를 만들어 보게 되었다.
 
-Currently, two official plugins are available:
+이 프로젝트는 **시즌 1 기준으로 등장 인물 간 관계를 시각화**하는 것을 목표로 한다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 프로젝트 개요
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Netflix 드라마 *Dark* 시즌 1 기준 인물 관계 그래프
+* React + Cytoscape 기반 시각화
+* JSON 데이터 기반으로 관계 구성
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 현재 상태
+
+* 시즌 1 기준 주요 인물 관계 정리 완료
+* 가족 / 연인 / 동일 인물(시간) 관계 포함
+* 필터(연도, 가문) 기능 지원
+
+---
+
+## 참고 사항
+
+JSON만 가지고 어디까지 표현이 가능할지 실험적인 성격이 강하다.
+현재는 **내가 이해한 범위 내에서만 구성**되어 있다.
+
+> *시즌 2부터는 관계가 맞는지 안맞는지 확인해 보지도 않음.*
+
+즉, 이후 시즌과의 정합성은 보장하지 않는다.
+
+---
+
+## 목적
+
+* 복잡한 인물 관계를 시각적으로 정리
+* 시간축 기반 동일 인물 개념 이해
+* 개인적인 정리 + 실험 프로젝트
+
+---
+
+## 기술 스택
+
+* React
+* Cytoscape.js
+* Vite
+
+---
+
+## 향후 계획
+
+* 시즌 2, 3 확장 (검증 필요)
+* 관계 정확도 보완
+* UX 개선 (툴팁, 하이라이트 등)
+* 데이터 구조 개선 (API 분리 가능성)
+
+---
+
+## 실행 방법
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## 배포
+
+정적 빌드 후 아래 플랫폼에서 배포 가능:
+
+* Vercel
+* Netlify
+* Nginx 서버
+
+---
+
+## Disclaimer
+
+이 프로젝트는 개인적인 이해를 돕기 위한 비공식 정리이며,
+공식 설정과 일부 차이가 있을 수 있다.
