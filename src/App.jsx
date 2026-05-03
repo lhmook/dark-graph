@@ -9,7 +9,8 @@ const relationLabel = {
   love: "Romantic",
   same: "Same Person (Time/World)",
   kill: "Killed",         // 시즌 2,3 확장을 위한 살인 관계
-  ancestor: "Ancestor"    // 복잡한 족보 대응
+  ancestor: "Ancestor",   // 복잡한 족보 대응
+  sibling: "Sibling"
 };
 
 const personNameKo = {
@@ -49,7 +50,9 @@ const personNameKo = {
   "Eva": "이브",
   "The Unknown (Cleft Lip)": "언노운 (구순열 남자)",
   "Marek Tannhaus": "마레크 탄하우스",
-  "Sonja Tannhaus": "존야 탄하우스"
+  "Sonja Tannhaus": "존야 탄하우스",
+  "Clausen": "클라우젠",
+  "Torben Wöller": "토르벤 뵐러"
 };
 
 const familyNameKo = {
@@ -97,7 +100,9 @@ const personDescriptionKo = {
   "Eva": "알트 마르타의 미래 모습으로, 매듭의 존속을 설계하는 이브의 세계 지도자.",
   "The Unknown (Cleft Lip)": "세 시기의 같은 인물이 공존하는 존재. 두 세계 혈통의 기원을 상징한다.",
   "Marek Tannhaus": "탄하우스 가문의 아들. 그의 사고가 근원 세계 비극의 직접적 도화선이 된다.",
-  "Sonja Tannhaus": "마레크의 아내로, 탄하우스 가문의 비극에 함께 휩쓸리는 인물."
+  "Sonja Tannhaus": "마레크의 아내로, 탄하우스 가문의 비극에 함께 휩쓸리는 인물.",
+  "Clausen": "시즌 2에서 빈덴에 파견된 기동수사대 특별 조사관. 진짜 '알렉산더 쾰러'의 동생으로 정체를 숨긴 알렉산더 티데만을 압박한다.",
+  "Torben Wöller": "빈덴 경찰서 형사. 오른쪽 눈을 다쳤으며, 샤를로테 아래에서 일하는 한편 알렉산더 티데만의 지시에 따라 사건을 은폐하기도 한다."
 };
 
 const getPersonNameKo = (name) => personNameKo[name] || name;
@@ -136,7 +141,7 @@ const initialElements = [
   },
   {
     data: {
-      id: "adam_A_1921", "label": "Adam", "family": "Kahnwald", "year": "1921", "world": "A", "seasons": [2, 3], "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=adam_1921", "imagesByYear": { "1921": "https://api.dicebear.com/7.x/avataaars/svg?seed=adam_1921" }
+      id: "adam_A_1921", "label": "Adam", "family": "Kahnwald", "year": "1921", "world": "A", "seasons": [2, 3], "image": "https://static.wikia.nocookie.net/dark-netflix/images/0/03/Adam%E2%80%93Profile.png/revision/latest/scale-to-width-down/1000?cb=20220219133120", "imagesByYear": { "1921": "https://static.wikia.nocookie.net/dark-netflix/images/0/03/Adam%E2%80%93Profile.png/revision/latest/scale-to-width-down/1000?cb=20220219133120" }
     }
   },
   {
@@ -161,7 +166,7 @@ const initialElements = [
   },
   {
     data: {
-      id: "mikkel_A_2019", "label": "Mikkel", "family": "Nielsen", "year": "2019", "world": "A", "seasons": [1, 2, 3], "image": "https://static.wikia.nocookie.net/dark-netflix/images/d/d6/Young_Mikkel_Nielsen_%28Adam%27s_World%29%E2%80%93Profile.png/revision/latest/scale-to-width-down/1000?cb=20220218103444", "imagesByYear": { "1986": { "image": "https://static.wikia.nocookie.net/dark-netflix/images/d/d6/Young_Mikkel_Nielsen_%28Adam%27s_World%29%E2%80%93Profile.png/revision/latest/scale-to-width-down/1000?cb=20220218103444", "seasons": [1, 2, 3] },  }
+      id: "mikkel_A_2019", "label": "Mikkel", "family": "Nielsen", "year": "2019", "world": "A", "seasons": [1, 2, 3], "image": "https://static.wikia.nocookie.net/dark-netflix/images/d/d6/Young_Mikkel_Nielsen_%28Adam%27s_World%29%E2%80%93Profile.png/revision/latest/scale-to-width-down/1000?cb=20220218103444", "imagesByYear": { "1986": { "image": "https://static.wikia.nocookie.net/dark-netflix/images/d/d6/Young_Mikkel_Nielsen_%28Adam%27s_World%29%E2%80%93Profile.png/revision/latest/scale-to-width-down/1000?cb=20220218103444", "seasons": [1, 2, 3] }, }
     }
   },
   {
@@ -222,7 +227,7 @@ const initialElements = [
 
   {
     data: {
-      id: "noah_A_1986", "label": "Noah (Hanno)", "family": "Doppler", "year": "1986", "world": "A", "seasons": [1, 2, 3], "image": "https://static.wikia.nocookie.net/dark-netflix/images/f/f9/OlderNoah.png/revision/latest?cb=20230323164240", "imagesByYear": { "1888": { "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=noah_1888&backgroundColor=d97706", "seasons": [3] }, "1921": { "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=noah_1921&backgroundColor=d97706", "seasons": [2, 3] }, "1986": "https://static.wikia.nocookie.net/dark-netflix/images/d/db/YoungNoah.jpg/revision/latest?cb=20230322200439" }
+      id: "noah_A_1986", "label": "Noah (Hanno)", "family": "Doppler", "year": "1986", "world": "A", "seasons": [1, 2, 3], "image": "https://static.wikia.nocookie.net/dark-netflix/images/f/f9/OlderNoah.png/revision/latest?cb=20230323164240", "imagesByYear": { "1888": { "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=noah_1888&backgroundColor=d97706", "seasons": [3] }, "1921": { "image": "https://static.wikia.nocookie.net/dark-netflix/images/d/db/YoungNoah.jpg/revision/latest?cb=20230322200439", "seasons": [2, 3] }, "1986": "https://static.wikia.nocookie.net/dark-netflix/images/d/db/YoungNoah.jpg/revision/latest?cb=20230322200439" }
     }
   },
   {
@@ -242,6 +247,16 @@ const initialElements = [
   },
   {
     data: {
+      id: "clausen_A_2019", "label": "Clausen", "family": "Unknown", "year": "2019", "world": "A", "seasons": [2, 3], "image": "https://static.wikia.nocookie.net/dark-netflix/images/c/c0/Clausen.PNG/revision/latest?cb=20190622155900", "imagesByYear": { "2019": "https://static.wikia.nocookie.net/dark-netflix/images/c/c0/Clausen.PNG/revision/latest?cb=20190622155900" }
+    }
+  },
+  {
+    data: {
+      id: "woller_A_2019", "label": "Torben Wöller", "family": "Unknown", "year": "2019", "world": "A", "seasons": [1, 2, 3], "image": "https://static.wikia.nocookie.net/dark-netflix/images/b/b6/2x0810Torben.jpg/revision/latest/scale-to-width-down/1000?cb=20190730042410", "imagesByYear": { "2019": "https://static.wikia.nocookie.net/dark-netflix/images/b/b6/2x0810Torben.jpg/revision/latest/scale-to-width-down/1000?cb=20190730042410" }
+    }
+  },
+  {
+    data: {
       id: "regina_A_2019", "label": "Regina", "family": "Tiedemann", "year": "2019", "world": "A", "seasons": [1, 2, 3], "image": "https://static.wikia.nocookie.net/dark-netflix/images/c/c3/Regina_2019.png/revision/latest/scale-to-width-down/1000?cb=20200629192734", "imagesByYear": { "1986": "https://static.wikia.nocookie.net/dark-netflix/images/9/91/Regina_1986.png/revision/latest/scale-to-width-down/1000?cb=20200629192722", "2019": "https://static.wikia.nocookie.net/dark-netflix/images/c/c3/Regina_2019.png/revision/latest/scale-to-width-down/1000?cb=20200629192734" }
     }
   },
@@ -257,7 +272,7 @@ const initialElements = [
   },
   {
     data: {
-      id: "claudia_A_1986", "label": "Claudia", "family": "Tiedemann", "year": "1986", "world": "A", "seasons": [1, 2, 3], "image": "https://static.wikia.nocookie.net/dark-netflix/images/1/18/Claudia_2019.png/revision/latest/scale-to-width-down/1000?cb=20200629193350", "imagesByYear": { "1953": "https://static.wikia.nocookie.net/dark-netflix/images/f/f6/Claudia_1953.png/revision/latest/scale-to-width-down/1000?cb=20200629193301", "1986": "https://static.wikia.nocookie.net/dark-netflix/images/1/12/Claudia_1986.png/revision/latest/scale-to-width-down/1000?cb=20200629193332", "1987": { "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=claudia_1987", "seasons": [2, 3] }, "2019": { "image": "https://static.wikia.nocookie.net/dark-netflix/images/1/18/Claudia_2019.png/revision/latest/scale-to-width-down/1000?cb=20200629193350", "seasons": [1, 2, 3] } }
+      id: "claudia_A_1986", "label": "Claudia", "family": "Tiedemann", "year": "1986", "world": "A", "seasons": [1, 2, 3], "image": "https://static.wikia.nocookie.net/dark-netflix/images/1/18/Claudia_2019.png/revision/latest/scale-to-width-down/1000?cb=20200629193350", "imagesByYear": { "1953": "https://static.wikia.nocookie.net/dark-netflix/images/f/f6/Claudia_1953.png/revision/latest/scale-to-width-down/1000?cb=20200629193301", "1986": "https://static.wikia.nocookie.net/dark-netflix/images/1/12/Claudia_1986.png/revision/latest/scale-to-width-down/1000?cb=20200629193332", "1987": { "image": "https://static.wikia.nocookie.net/dark-netflix/images/1/12/Claudia_1986.png/revision/latest/scale-to-width-down/1000?cb=20200629193332", "seasons": [2, 3] }, "2019": { "image": "https://static.wikia.nocookie.net/dark-netflix/images/1/18/Claudia_2019.png/revision/latest/scale-to-width-down/1000?cb=20200629193350", "seasons": [1, 2, 3] } }
     }
   },
   {
@@ -277,7 +292,7 @@ const initialElements = [
   },
   {
     data: {
-      id: "martha_B_2019", "label": "Martha (Alt)", "family": "Nielsen", "year": "2019", "world": "B", "seasons": [2, 3], "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=martha_B_2019", "imagesByYear": { "1888": { "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=martha_B_1888&backgroundColor=14b8a6", "seasons": [3], "world": "B" }, "2019": { "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=martha_B_2019&backgroundColor=14b8a6", "seasons": [2, 3], "world": "B" } }
+      id: "martha_B_2019", "label": "Martha (Alt)", "family": "Nielsen", "year": "2019", "world": "B", "seasons": [2, 3], "image": "https://static.wikia.nocookie.net/dark-netflix/images/6/60/2x0852AltMartha.jpg/revision/latest/scale-to-width-down/1000?cb=20190730045803", "imagesByYear": { "1888": { "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=martha_B_1888&backgroundColor=14b8a6", "seasons": [3], "world": "B" }, "2019": { "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=martha_B_2019&backgroundColor=14b8a6", "seasons": [2, 3], "world": "B" } }
     }
   },
   {
@@ -372,8 +387,14 @@ const initialElements = [
   { data: { source: "noah_A_1986", target: "charlotte_A_2019", type: "child", seasons: [2, 3] } }, // 노아+엘리자베스 = 샤를로테
   { data: { source: "elisabeth_A_2019", target: "charlotte_A_2019", type: "child", seasons: [2, 3] } }, // 패러독스: 엄마이자 딸
   { data: { source: "egon_A_1953", target: "hannah_A_2019", type: "love", seasons: [2, 3] } }, // 에곤+한나
-  { data: { source: "hannah_A_2019", target: "silja_A_1888", type: "child", seasons: [2, 3] } },
-  { data: { source: "egon_A_1953", target: "silja_A_1888", type: "child", seasons: [2, 3] } },
+
+  { data: { source: "noah_A_1986", target: "agnes_A_1953", type: "sibling", seasons: [2, 3] } }, // 노아는 아그네스의 오빠
+  { data: { source: "doris_A_1953", target: "agnes_A_1953", type: "love", seasons: [1, 2, 3] } }, // 도리스+아그네스
+  { data: { source: "tronte_A_2019", target: "claudia_A_1986", type: "love", seasons: [1, 2, 3] } }, // 트론테+클라우디아 불륜
+  { data: { source: "claudia_A_1986", target: "regina_A_2019", type: "child", seasons: [1, 2, 3] } }, // 클라우디아의 딸 레기나
+
+  { data: { source: "hannah_A_2019", target: "silja_A_1888", type: "child", seasons: [3] } }, // 시즌 3 스포일러로 변경
+  { data: { source: "egon_A_1953", target: "silja_A_1888", type: "child", seasons: [3] } }, // 시즌 3 스포일러로 변경
 
   // [시즌 3: 세계의 기원과 매듭의 완성]
   { data: { source: "martha_B_2019", target: "eva_B_2052", type: "same", seasons: [3] } }, // 마르타(Alt) = 이브
@@ -393,13 +414,78 @@ const initialElements = [
 
   { data: { source: "bernd_A_1953", target: "claudia_A_1986", type: "love", seasons: [3] } }, // 베른트+클라우디아 = 레지나
   { data: { source: "bernd_A_1953", target: "regina_A_2019", type: "child", seasons: [3] } },
-  { data: { source: "claudia_A_1986", target: "regina_A_2019", type: "child", seasons: [3] } },
 
   // [근원 세계 (Origin World) - 비극의 시작점]
   { data: { source: "tannhaus_O_1971", target: "marek_O_1971", type: "child", seasons: [3] } },
   { data: { source: "marek_O_1971", target: "sonja_O_1971", type: "spouse", seasons: [3] } },
   { data: { source: "katharina_O_2019", target: "hannah_O_2019", type: "love", seasons: [3] } } // 근원 세계의 우정/연대
 ];
+
+const nodePositions = {
+  // Nielsen
+  "agnes_A_1953": { x: 200, y: 100 },
+  "unknown_B_1888": { x: 100, y: -50 },
+  "tronte_A_2019": { x: 150, y: 250 },
+  "jana_A_2019": { x: 250, y: 250 },
+  "ulrich_A_2019": { x: 150, y: 400 },
+  "katharina_A_2019": { x: 250, y: 400 },
+  "mads_A_1986": { x: 50, y: 400 },
+  "magnus_A_2019": { x: 100, y: 550 },
+  "martha_A_2019": { x: 200, y: 550 },
+  "mikkel_A_2019": { x: 300, y: 550 },
+
+  // Kahnwald
+  "ines_A_1986": { x: 450, y: 250 },
+  "michael_A_2019": { x: 400, y: 400 },
+  "hannah_A_2019": { x: 500, y: 400 },
+  "jonas_A_2019": { x: 450, y: 550 },
+  "adam_A_1921": { x: 450, y: 700 },
+
+  // Tiedemann
+  "egon_A_1953": { x: 650, y: 100 },
+  "doris_A_1953": { x: 750, y: 100 },
+  "claudia_A_1986": { x: 700, y: 250 },
+  "regina_A_2019": { x: 650, y: 400 },
+  "aleksander_A_2019": { x: 750, y: 400 },
+  "bartosz_A_2019": { x: 700, y: 550 },
+  "silja_A_1888": { x: 600, y: 250 },
+
+  // Doppler
+  "bernd_A_1953": { x: 950, y: 100 },
+  "greta_A_1953": { x: 1050, y: 100 },
+  "helge_A_1986": { x: 1000, y: 250 },
+  "peter_A_2019": { x: 950, y: 400 },
+  "charlotte_A_2019": { x: 1050, y: 400 },
+  "franziska_A_2019": { x: 950, y: 550 },
+  "elisabeth_A_2019": { x: 1050, y: 550 },
+  "noah_A_1986": { x: 1150, y: 400 },
+
+  // Misc
+  "tannhaus_A_1986": { x: 1250, y: 250 },
+  "erik_A_2019": { x: 1200, y: 550 },
+  "yasin_A_2019": { x: 1300, y: 550 },
+  "clausen_A_2019": { x: 800, y: 300 },
+  "woller_A_2019": { x: 850, y: 500 },
+
+  // Alt World (B)
+  "martha_B_2019": { x: 200, y: 700 },
+  "eva_B_2052": { x: 200, y: 850 },
+
+  // Origin World
+  "tannhaus_O_1971": { x: 1200, y: 0 },
+  "marek_O_1971": { x: 1150, y: -100 },
+  "sonja_O_1971": { x: 1250, y: -100 },
+  "regina_O_2019": { x: 650, y: -100 },
+  "katharina_O_2019": { x: 250, y: -100 },
+  "hannah_O_2019": { x: 500, y: -100 },
+  "peter_O_2019": { x: 950, y: -100 }
+};
+
+initialElements.forEach(el => {
+  if (el.data && el.data.id && nodePositions[el.data.id]) {
+    el.position = nodePositions[el.data.id];
+  }
+});
 
 export default function App() {
   const cyRef = useRef(null);
@@ -413,7 +499,7 @@ export default function App() {
   // 시즌별 가능한 월드 및 연도 정의
   const seasonConfig = {
     1: { worlds: ["A"], years: ["2019", "1986", "1953"] },
-    2: { worlds: ["A", "B"], years: ["2019", "1986", "1953", "1921", "1888"] },
+    2: { worlds: ["A"], years: ["2052", "2019", "1986", "1953", "1921"] },
     3: { worlds: ["A", "B", "Origin"], years: ["2052", "2019", "1986", "1953", "1921", "1888", "1971"] }
   };
 
@@ -455,7 +541,7 @@ export default function App() {
 
       const yearMatch = yearFilter === "all" || el.data.year === yearFilter || hasValidYearImage;
       const familyMatch = familyFilter === "all" || el.data.family === familyFilter;
-      const worldMatch = worldFilter === "all" || el.data.world === worldFilter;
+      const worldMatch = worldFilter === "all" || el.data.world === worldFilter || (seasonFilter === 2 && el.data.id === "martha_B_2019");
 
       // Update displayYear property if specific year is matched
       if (yearMatch && yearFilter !== "all" && hasValidYearImage) {
@@ -495,8 +581,10 @@ export default function App() {
     });
 
     cy.layout({
-      name: "cose",
-      animate: true
+      name: "preset",
+      animate: true,
+      fit: true,
+      padding: 50
     }).run();
 
   }, [filteredElements]);
@@ -558,10 +646,11 @@ export default function App() {
         }
       }
     },
-    { selector: 'edge[type="child"]', style: { width: 2, "line-color": "#9ca3af", "target-arrow-shape": "triangle", "curve-style": "bezier" } },
-    { selector: 'edge[type="spouse"]', style: { width: 2, "line-color": "#fbbf24", "line-style": "dashed" } },
-    { selector: 'edge[type="love"]', style: { width: 2, "line-color": "#ec4899" } },
-    { selector: 'edge[type="same"]', style: { width: 4, "line-color": "#ef4444", "line-style": "dotted" } }
+    { selector: 'edge[type="child"]', style: { width: 2, "line-color": "#9ca3af", "target-arrow-shape": "triangle", "curve-style": "taxi", "taxi-direction": "vertical", "taxi-turn-min-distance": 15 } },
+    { selector: 'edge[type="spouse"]', style: { width: 2, "line-color": "#fbbf24", "line-style": "dashed", "curve-style": "unbundled-bezier", "control-point-distances": 30 } },
+    { selector: 'edge[type="love"]', style: { width: 2, "line-color": "#ec4899", "curve-style": "unbundled-bezier", "control-point-distances": -30 } },
+    { selector: 'edge[type="same"]', style: { width: 4, "line-color": "#ef4444", "line-style": "dotted", "curve-style": "unbundled-bezier", "control-point-distances": 40 } },
+    { selector: 'edge[type="sibling"]', style: { width: 2, "line-color": "#10b981", "line-style": "dashed", "curve-style": "unbundled-bezier", "control-point-distances": 20 } }
   ];
 
   return (
@@ -609,7 +698,7 @@ export default function App() {
           </select>
         </div>
 
-        {seasonFilter !== 1 && (
+        {seasonFilter === 3 && (
           <div className="space-y-2">
             <label className="block text-sm font-semibold">World</label>
             <select className="w-full bg-zinc-800 p-2 rounded" value={worldFilter} onChange={(e) => setWorldFilter(e.target.value)}>
@@ -620,7 +709,7 @@ export default function App() {
             </select>
           </div>
         )}
-        {seasonFilter === 1 && (
+        {seasonFilter !== 3 && (
           <div className="p-3 bg-zinc-800 rounded text-sm text-zinc-400">
             <span className="font-semibold text-white">World:</span> Adam's World (A)
           </div>
@@ -649,6 +738,17 @@ export default function App() {
             <option value="Doppler">도플러</option>
             <option value="Tiedemann">티데만</option>
           </select>
+        </div>
+
+        <div className="space-y-2 pt-4 border-t border-zinc-700">
+          <label className="block text-sm font-semibold">관계 (Relationships)</label>
+          <div className="text-sm space-y-2 text-zinc-300">
+            <div className="flex items-center gap-3"><span className="w-8 h-0.5 bg-[#9ca3af] relative"><span className="absolute right-0 -top-1 border-t-4 border-b-4 border-l-4 border-transparent border-l-[#9ca3af]"></span></span> <span className="text-xs">부모 → 자식 (Parent-Child)</span></div>
+            <div className="flex items-center gap-3"><span className="w-8 h-0.5 border-t-2 border-dashed border-[#fbbf24]"></span> <span className="text-xs">부부 (Spouse)</span></div>
+            <div className="flex items-center gap-3"><span className="w-8 h-0.5 bg-[#ec4899]"></span> <span className="text-xs">연인 (Romantic)</span></div>
+            <div className="flex items-center gap-3"><span className="w-8 h-0.5 border-t-2 border-dashed border-[#10b981]"></span> <span className="text-xs">남매 등 (Sibling/Family)</span></div>
+            <div className="flex items-center gap-3"><span className="w-8 h-[4px] border-t-4 border-dotted border-[#ef4444]"></span> <span className="text-xs">동일인물 (Same)</span></div>
+          </div>
         </div>
 
         {selectedPerson && (
